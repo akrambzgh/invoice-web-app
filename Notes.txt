@@ -1,0 +1,3 @@
+The Design Responsivness:
+The Nav Tranfer To The Top In The Width Of 1024px.
+The Website Generaly Changes In THe Widht Of 768px Which Is The Width Of The Edit And Create Section.
