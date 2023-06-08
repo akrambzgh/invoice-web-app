@@ -4,6 +4,290 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Inovoice Web App</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
   </head>
-  <body></body>
+  <body>
+    <div class="sidebar">
+      <div class="logo">
+        <img src="./assets/logo.png" alt="" class="logo__img" />
+      </div>
+      <div class="sidebar__bottom">
+        <div class="mode-switch">
+          <img src="./assets/icon-moon.svg" alt="" class="mode-switch__img" />
+        </div>
+        <div class="account">
+          <img src="./assets/image-avatar.jpg" alt="" class="account__img" />
+        </div>
+      </div>
+    </div>
+    <div class="main section">
+      <head class="main-section__header">
+        <div class="invoices-number">
+          <h1>invoices</h1>
+          <span class="number">There Are 7 Total invoices</span>
+        </div>
+        <div class="main-section__header__right">
+          <div class="filter-invoices">
+            <h2>
+              Filter by status
+              <img src="./assets/icon-arrow-down.svg" alt="" />
+            </h2>
+          </div>
+          <div class="create-invoice">
+            <button class="create-invoices__button">new invoices</button>
+          </div>
+        </div>
+      </head>
+      <div class="invoices">
+        <div class="invoices__element">
+          <h3 class="invoice__element__id">
+            <span class="hash">#</span>RT3080
+          </h3>
+          <h4>due 19 aug 2021</h4>
+          <h5>Jensen Huang</h5>
+          <h1>£1,800.90</h1>
+          <div class="status">
+            <div class="status__circle"></div>
+            <h3 class="status__text">Paid</h3>
+          </div>
+          <img src="./assets/icon-arrow-right.svg" alt="" class="arrow-img" />
+        </div>
+        <div class="invoices__element">
+          <h3 class="invoice__element__id">
+            <span class="hash">#</span>XM9141
+          </h3>
+          <h4>due 20 sep 2021</h4>
+          <h5>Alex Grim</h5>
+          <h1>£556.00</h1>
+          <div class="status">
+            <div class="status__circle"></div>
+            <h3 class="status__text">Pending</h3>
+          </div>
+          <img src="./assets/icon-arrow-right.svg" alt="" class="arrow-img" />
+        </div>
+        <div class="invoices__element">
+          <h3 class="invoice__element__id">
+            <span class="hash">#</span>RG0314
+          </h3>
+          <h4>due 01 oct 2021</h4>
+          <h5>John Morrison</h5>
+          <h1>£14,002.33</h1>
+          <div class="status">
+            <div class="status__circle"></div>
+            <h3 class="status__text">Paid</h3>
+          </div>
+          <img src="./assets/icon-arrow-right.svg" alt="" class="arrow-img" />
+        </div>
+        <div class="invoices__element">
+          <h3 class="invoice__element__id">
+            <span class="hash">#</span>RT2080
+          </h3>
+          <h4>due 12 oct 2021</h4>
+          <h5>Alysa Werner</h5>
+          <h1>£102.04</h1>
+          <div class="status">
+            <div class="status__circle"></div>
+            <h3 class="status__text">Pending</h3>
+          </div>
+          <img src="./assets/icon-arrow-right.svg" alt="" class="arrow-img" />
+        </div>
+        <div class="invoices__element">
+          <h3 class="invoice__element__id">
+            <span class="hash">#</span>AA1449
+          </h3>
+          <h4>due 14 oct 2021</h4>
+          <h5>Mellisa Clarke</h5>
+          <h1>£4,032.33</h1>
+          <div class="status">
+            <div class="status__circle"></div>
+            <h3 class="status__text">Pending</h3>
+          </div>
+          <img src="./assets/icon-arrow-right.svg" alt="" class="arrow-img" />
+        </div>
+        <div class="invoices__element">
+          <h3 class="invoice__element__id">
+            <span class="hash">#</span>TY9141
+          </h3>
+          <h4>due 21 oct 2021</h4>
+          <h5>Thomas Wayne</h5>
+          <h1>£6,155.91</h1>
+          <div class="status">
+            <div class="status__circle"></div>
+            <h3 class="status__text">Pending</h3>
+          </div>
+          <img src="./assets/icon-arrow-right.svg" alt="" class="arrow-img" />
+        </div>
+        <div class="invoices__element">
+          <h3 class="invoice__element__id">
+            <span class="hash">#</span>FV2353
+          </h3>
+          <h4>due 12 nov 2021</h4>
+          <h5>Anita Wainwright</h5>
+          <h1>£3,102.04</h1>
+          <div class="status">
+            <div class="status__circle"></div>
+            <h3 class="status__text">Draft</h3>
+          </div>
+          <img src="./assets/icon-arrow-right.svg" alt="" class="arrow-img" />
+        </div>
+      </div>
+    </div>
+    <div class="create-section">
+      <h1>create invoice</h1>
+      <div class="create-invoice">
+        <div class="create-invoice__inputs one">
+          <h3>bill from</h3>
+          <label for="s-a">street address</label>
+          <input type="text" id="s-a" />
+          <div class="three-inputs">
+            <label for="city">city</label>
+            <input type="text" id="city" />
+            <label for="p-c">post card</label>
+            <input type="text" id="p-c" />
+            <label for="country">country</label>
+            <input type="text" id="country" />
+          </div>
+        </div>
+        <div class="create-invoice__inputs two">
+          <h3>bill to</h3>
+          <label for="c-n">client name</label>
+          <input type="text" id="c-n" />
+          <label for="c-e">client email</label>
+          <input type="text" id="c-e" />
+          <label for="s-a">street address</label>
+          <input type="text" id="s-a" />
+          <div class="three-inputs">
+            <label for="city">city</label>
+            <input type="text" id="city" />
+            <label for="p-c">post card</label>
+            <input type="text" id="p-c" />
+            <label for="country">country</label>
+            <input type="text" id="country" />
+          </div>
+          <div class="two-inputs">
+            <label for="i-d">invoice date</label>
+            <input type="date" id="i-d" />
+            <label for="">payment terms</label>
+            <span>Next One Day</span>
+            <ul class="payement-trems-date">
+              <li class="payment-terms-date__item">next 1 day</li>
+              <li class="payment-terms-date__item">next 7 days</li>
+              <li class="payment-terms-date__item">next 14 days</li>
+              <li class="payment-terms-date__item">next 30 days</li>
+            </ul>
+          </div>
+        </div>
+        <div class="items-list">
+          <h1>items list</h1>
+          <div class="item-creation">
+            <label for="i-n">item name</label>
+            <input type="text" id="i-n" />
+            <label for="q">qty.</label>
+            <input type="number" id="q" />
+            <label for="p">price</label>
+            <input type="number" id="p" />
+            <div class="total">
+              <span>total</span>
+              <span class="total__price"></span>
+            </div>
+            <img src="./assets/icon-delete.svg" alt="" class="delete__img" />
+          </div>
+        </div>
+      </div>
+      <div class="create-options">
+        <div class="create-options__discard">
+          <button class="create-options__discard__button">discard</button>
+        </div>
+        <div class="create-options__save">
+          <button class="create-options__save__button">save & send</button>
+        </div>
+      </div>
+    </div>
+    <div class="invoice-info">
+      <head class="invoice-info__header">
+        <div class="first">
+          <span>status</span>
+          <div class="status">
+            <div class="status__circle"></div>
+            <h3 class="status__text">Paid</h3>
+          </div>
+        </div>
+        <div class="edit">
+          <button class="edit__button">edit</button>
+        </div>
+        <div class="delete">
+          <button class="delete__button">delete</button>
+        </div>
+      </head>
+      <div class="invoice-info__details">
+        <div class="details">
+          <div class="details__general">
+            <div class="left">
+              <h1><span class="hash">#</span>RT3080</h1>
+              <span class="name">jensen huang</span>
+            </div>
+            <div class="right">
+              <span>19 Union Terrace</span><span>London</span><span>E1 3EZ</span
+              ><span>United Kingdom</span>
+            </div>
+          </div>
+          <div class="details__detailed">
+            <div class="dates">
+              <div class="invoice-date">
+                <span>invoice date</span>
+                <h1 class="date-text">aug 18, 2021</h1>
+              </div>
+              <div class="payment-due">
+                <span>payment Due</span>
+                <h1 class="date-text">aug 19, 2021</h1>
+              </div>
+            </div>
+            <div class="bill-to-details">
+              <h3 class="bill-to-name"></h3>
+              <div class="bill-to-details">
+                <span>106 Kendell Street</span><span>Sharrington</span>
+                <span>NR24 5WQ</span>
+                <span>United Kingdom</span>
+              </div>
+            </div>
+            <div class="sent-to-details">
+              <h3>jensenh@mail.com</h3>
+            </div>
+          </div>
+        </div>
+        <div class="items">
+          <div class="items__list">
+            <div class="items__list__item">
+              <div class="items__list__item-name">
+                <span class="item-name-title">item name</span>
+                <h3>Brand Guidelines</h3>
+              </div>
+              <div class="items__list__item__quantity">
+                <span class="item-name-title">qty</span>
+                <h3>1</h3>
+              </div>
+              <div class="items__list__item__item-price">
+                <span class="item-name-title">item price</span>
+                <h3>£1800.9</h3>
+              </div>
+              <div class="items__list__item__item-total">
+                <span class="item-name-title">total</span>
+                <h3>£1800.9</h3>
+              </div>
+            </div>
+          </div>
+          <div class="items__total-price">
+            <h1>ammount due</h1>
+            <h1>£1800.9</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
 </html>
