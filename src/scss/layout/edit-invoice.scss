@@ -1,0 +1,117 @@
+@use "../utils/vars.scss" as vars;
+@use "../utils/mixin.scss" as mix;
+@use "../utils/fun.scss" as fun;
+
+.invoice-info {
+  width: fun.em(700);
+  position: absolute;
+  left: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: vars.$transition;
+  @media (max-width: fun.em(991)) {
+    width: 98%;
+    margin-top: 10%;
+  }
+  &.show {
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .go-back {
+    @include mix.flex(flex-start, center, row);
+    margin-bottom: 20px;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  &__header {
+    @include mix.flex(space-between, center, row);
+    padding: fun.em(15);
+    background-color: white;
+    margin-bottom: fun.em(20);
+    border-radius: fun.em(10);
+    .left {
+      @include mix.flex(flex-start, center, row);
+      gap: fun.em(10);
+      span {
+        font-size: fun.em(18);
+        text-transform: capitalize;
+      }
+    }
+    .right {
+      display: flex;
+      gap: fun.em(15);
+    }
+  }
+  &__details {
+    background-color: white;
+    border-radius: fun.em(10);
+    padding: fun.em(15);
+    .details {
+      &__general {
+        @include mix.flex(space-between, center, row);
+        margin-bottom: fun.em(20);
+        .left {
+          h1 {
+            @include mix.flex(flex-start, center, row);
+            font-size: fun.em(16);
+            font-weight: 400;
+            .hash {
+              color: map-get($map: vars.$primaryColors, $key: "hashColor");
+              font-size: fun.em(20);
+              font-weight: 400;
+            }
+          }
+        }
+      }
+      &__detailed {
+        @include mix.flex(space-between, center, row);
+        margin-bottom: fun.em(20);
+        .dates {
+          .invoice-date,
+          .payment-due {
+            h1 {
+              font-size: fun.em(18);
+            }
+          }
+        }
+        .sent-to-details {
+          h3 {
+            text-transform: none;
+          }
+        }
+      }
+    }
+    .items {
+      background-color: map-get(
+        $map: vars.$primaryColors,
+        $key: "veryVeryLightGray"
+      );
+      border-radius: fun.em(10);
+      &__list {
+        text-align: center;
+        &__item {
+          @include mix.flex(space-between, center, row);
+          padding: fun.em(20);
+        }
+      }
+      &__total-price {
+        background-color: map-get($map: vars.$primaryColors, $key: "navback");
+        @include mix.flex(space-between, center, row);
+        padding: fun.em(30);
+        h1 {
+          color: white;
+          &:nth-child(1) {
+            font-size: fun.em(18);
+          }
+          &:nth-child(2) {
+            font-size: fun.em(30);
+          }
+        }
+      }
+    }
+  }
+}

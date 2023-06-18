@@ -1,0 +1,34 @@
+@use "../utils/vars.scss" as vars;
+@use "../utils/mixin.scss" as mix;
+@use "../utils/fun.scss" as fun;
+
+.invoices__element {
+  @include mix.flex(space-around, center, row);
+  background-color: white;
+  border-radius: fun.em(15);
+  padding: fun.em(9) fun.em(13);
+  margin-bottom: fun.em(20);
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  border: fun.em(1) solid transparent;
+  transition: vars.$transition;
+  @media (max-width: fun.em(991)) {
+    gap: fun.em(5);
+  }
+  &:hover {
+    border-color: map-get($map: vars.$primaryColors, $key: "purple");
+  }
+  &__id {
+    @include mix.flex(flex-start, center, row);
+    font-size: fun.em(16);
+    font-weight: 400;
+    .hash {
+      color: map-get($map: vars.$primaryColors, $key: "hashColor");
+      font-size: fun.em(20);
+      font-weight: 400;
+    }
+  }
+}

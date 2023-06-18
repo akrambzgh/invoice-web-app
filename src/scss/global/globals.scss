@@ -1,9 +1,11 @@
 @use "../utils/font.scss" as font;
+@use "../utils/vars.scss" as vars;
 
 html {
   height: 100%;
   line-height: 1.6;
 }
+
 body {
   font-family: font.$fontFamily;
   padding: 0;
@@ -18,4 +20,22 @@ body {
   &::after {
     box-sizing: border-box;
   }
+}
+
+span {
+  color: map-get($map: vars.$primaryColors, $key: "textGray");
+  font-size: 16px;
+  font-weight: 300;
+  letter-spacing: 0.5px;
+  display: block;
+}
+h1,
+h2,
+h3,
+h4,
+h5 {
+  color: map-get($map: vars.$primaryColors, $key: "darktext");
+  text-transform: capitalize;
+  letter-spacing: 1px;
+  transition: vars.$transition;
 }

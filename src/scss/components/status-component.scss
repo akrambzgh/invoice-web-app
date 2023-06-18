@@ -1,0 +1,55 @@
+@use "../utils/vars.scss" as vars;
+@use "../utils/mixin.scss" as mix;
+@use "../utils/fun.scss" as fun;
+.status {
+  background: lightblue;
+  padding: fun.em(10) fun.em(17);
+  border-radius: fun.em(5);
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: fun.em(10);
+  transition: vars.$transition;
+  @media (max-width: fun.em(991)) {
+    padding: fun.em(7) fun.em(14);
+  }
+  &__circle {
+    width: fun.em(15);
+    height: fun.em(15);
+    border-radius: 50%;
+  }
+  &__text {
+    font-size: fun.em(16);
+    font-weight: 400;
+  }
+  &.paid {
+    background-color: map-get($map: vars.$primaryColors, $key: "lightGreen");
+    .status__circle {
+      background-color: map-get($map: vars.$primaryColors, $key: "green");
+    }
+    .status__text {
+      color: map-get($map: vars.$primaryColors, $key: "green");
+    }
+  }
+  &.pending {
+    background-color: map-get($map: vars.$primaryColors, $key: "lightOrange");
+    .status__circle {
+      background-color: map-get($map: vars.$primaryColors, $key: "orange");
+    }
+    .status__text {
+      color: map-get($map: vars.$primaryColors, $key: "orange");
+    }
+  }
+  &.draft {
+    background-color: map-get(
+      $map: vars.$primaryColors,
+      $key: "veryVeryLightGray"
+    );
+    .status__circle {
+      background-color: map-get($map: vars.$primaryColors, $key: "grayishBlue");
+    }
+    .status__text {
+      color: map-get($map: vars.$primaryColors, $key: "grayishBlue");
+    }
+  }
+}

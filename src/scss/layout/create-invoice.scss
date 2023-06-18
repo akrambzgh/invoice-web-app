@@ -1,0 +1,181 @@
+@use "../utils/vars.scss" as vars;
+@use "../utils/mixin.scss" as mix;
+@use "../utils/fun.scss" as fun;
+
+.create-invoice,
+.edit-invoice {
+  position: absolute;
+  left: -100%;
+  top: 0;
+  height: 100%;
+  width: fun.em(768);
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.24) fun.em(0) fun.em(3) fun.em(8);
+  border-radius: fun.em(21);
+  padding: fun.em(45) fun.em(20) 0 fun.em(150);
+  z-index: 3;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  transition: vars.$transition;
+  @media (max-width: fun.em(991)) {
+    width: 100%;
+    padding-left: fun.em(20);
+  }
+  &.show {
+    left: 0;
+  }
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  & {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  h1 {
+    font-size: fun.em(28);
+    letter-spacing: fun.em(2);
+    font-weight: 500;
+    margin-bottom: fun.em(60);
+  }
+  &__inputs {
+    h3 {
+      color: map-get($map: vars.$primaryColors, $key: "purple");
+      font-size: fun.em(18);
+      font-weight: 500;
+      letter-spacing: fun.em(2);
+    }
+    label {
+      display: block;
+      font-size: fun.em(17);
+      font-weight: 500;
+      text-transform: capitalize;
+      color: map-get($map: vars.$primaryColors, $key: "textGray");
+      margin-bottom: fun.em(7);
+    }
+    .three-inputs,
+    .two-inputs {
+      @include mix.flex(center, center, row);
+      gap: fun.em(10);
+    }
+    .two-inputs {
+      position: relative;
+      .input-container {
+        flex: 1;
+      }
+      .dates {
+        span {
+          display: block;
+          border: fun.em(1) solid
+            map-get($map: vars.$primaryColors, $key: "textGray");
+          border-radius: fun.em(10);
+          padding: fun.em(14);
+          font-size: fun.em(14);
+          color: map-get($map: vars.$primaryColors, $key: "darktext");
+        }
+        .payement-trems-date {
+          position: absolute;
+          top: 103%;
+          border: fun.em(1) solid;
+          width: 100%;
+          padding: fun.em(10);
+          border-radius: fun.em(10);
+          box-shadow: rgba(0, 0, 0, 0.24) fun.em(0) fun.em(3) fun.em(8);
+          opacity: 0;
+          visibility: hidden;
+          transition: vars.$transition;
+          &.show {
+            opacity: 1;
+            visibility: visible;
+          }
+          &__item {
+            text-transform: capitalize;
+            margin-bottom: fun.em(7);
+            border-bottom: fun.em(1) solid
+              map-get($map: vars.$primaryColors, $key: "darktext");
+          }
+        }
+      }
+    }
+  }
+  input {
+    width: 100%;
+    font-family: inherit;
+    border: fun.em(1) solid map-get($map: vars.$primaryColors, $key: "textGray");
+    border-radius: fun.em(10);
+    padding: fun.em(14);
+    font-size: fun.em(16);
+    color: map-get($map: vars.$primaryColors, $key: "darktext");
+    display: block;
+    margin-bottom: fun.em(10);
+    &:focus {
+      border-color: map-get($map: vars.$primaryColors, $key: "purple");
+    }
+    &.error {
+      border-color: map-get($map: vars.$primaryColors, $key: "red");
+    }
+  }
+  .items-list {
+    h1 {
+      color: map-get($map: vars.$primaryColors, $key: "textGray");
+      margin-bottom: fun.em(2);
+    }
+    .item-creation {
+      @include mix.flex(flex-start, center, row);
+      .inputs {
+        @include mix.flex(flex-start, center, row);
+        gap: fun.em(15);
+        border-bottom: fun.em(1) solid
+          map-get($map: vars.$primaryColors, $key: "textGray");
+
+        label {
+          display: block;
+          font-size: fun.em(17);
+          font-weight: 500;
+          text-transform: capitalize;
+          color: map-get($map: vars.$primaryColors, $key: "darktext");
+          margin-bottom: fun.em(7);
+        }
+        .input-container:nth-child(1) {
+          width: 30%;
+        }
+        .input-container:nth-child(2) {
+          width: 15%;
+        }
+        .input-container:nth-child(3) {
+          width: 25%;
+        }
+        .total {
+          width: 15%;
+          span.label {
+            display: block;
+            font-size: fun.em(17);
+            font-weight: 500;
+            text-transform: capitalize;
+            color: map-get($map: vars.$primaryColors, $key: "darktext");
+            margin-bottom: fun.em(7);
+          }
+          &__price {
+            display: block;
+            border: fun.em(1) solid
+              map-get($map: vars.$primaryColors, $key: "textGray");
+            border-radius: fun.em(10);
+            padding: fun.em(14);
+            font-size: fun.em(16);
+            color: map-get($map: vars.$primaryColors, $key: "darktext");
+            text-align: center;
+            height: fun.em(45);
+            margin-bottom: fun.em(7);
+          }
+        }
+      }
+      img {
+        flex: 1;
+        cursor: pointer;
+      }
+    }
+  }
+  .discard-save {
+    @include mix.flex(space-between, center, row);
+    height: fun.em(150);
+  }
+}

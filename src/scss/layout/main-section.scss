@@ -1,0 +1,120 @@
+@use "../utils/vars.scss" as vars;
+@use "../utils/mixin.scss" as mix;
+@use "../utils/fun.scss" as fun;
+
+body {
+  @include mix.flex(center, center, row);
+  background-color: map-get($map: vars.$lightMode, $key: "lightBackground");
+  overflow-x: hidden;
+  overflow-y: hidden;
+  transition: vars.$transition;
+}
+.main-section {
+  width: fun.em(700);
+  transition: vars.$transition;
+  @media (max-width: fun.em(991)) {
+    margin-top: fun.em(110);
+  }
+  &__header {
+    @include mix.flex(space-between, center, row);
+    span.number {
+      @include mix.flex(space-between, center, row);
+      gap: 3px;
+    }
+    &__right {
+      @include mix.flex(space-between, center, row);
+      gap: fun.em(37);
+      .filter-invoices {
+        @include mix.flex(space-between, center, row);
+        position: relative;
+        cursor: pointer;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        h2 {
+          font-size: fun.em(16);
+          font-weight: 600;
+        }
+        &__list {
+          position: absolute;
+          background-color: white;
+          width: 100%;
+          border-radius: fun.em(10);
+          top: 100%;
+          box-shadow: rgba(0, 0, 0, 0.24) fun.em(0) fun.em(3) fun.em(8);
+          opacity: 0;
+          visibility: hidden;
+          transform: translateX(fun.em(20));
+          transition: vars.$transition;
+          &.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(fun.em(0));
+          }
+          &__filter,
+          &__remove-filter {
+            font-size: fun.em(18);
+            font-weight: 300;
+            color: map-get($map: vars.$primaryColors, $key: "darktext");
+            @include mix.flex(flex-start, center, row);
+            gap: fun.em(10);
+          }
+          &__remove-filter {
+            color: map-get($map: vars.$primaryColors, $key: "red");
+            font-weight: 500;
+            letter-spacing: 1px;
+            margin-top: 5px;
+            border-top: 1px solid
+              map-get($map: vars.$primaryColors, $key: "darktext");
+            padding: fun.em(5) fun.em(15);
+          }
+          &__filter {
+            padding: fun.em(5) fun.em(15);
+            &.fil-selected {
+              .checkbox {
+                background-color: map-get(
+                  $map: vars.$primaryColors,
+                  $key: "purple"
+                );
+                img {
+                  display: block;
+                }
+              }
+            }
+            .checkbox {
+              width: fun.em(15);
+              height: fun.em(15);
+              border: fun.em(1) solid
+                map-get($map: vars.$primaryColors, $key: "darktext");
+              border-radius: fun.em(3);
+              @include mix.flex(center, center, row);
+              img {
+                display: none;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .invoices {
+    margin-top: 18px;
+    max-height: 75%;
+    overflow-y: scroll;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+    & {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+    h4,
+    h5,
+    h1 {
+      font-size: fun.em(16);
+      font-weight: 400;
+    }
+  }
+}

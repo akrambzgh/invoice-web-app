@@ -1,0 +1,18 @@
+@mixin flex($js, $al, $d) {
+  display: flex;
+  justify-content: $js;
+  align-items: $al;
+  flex-direction: $d;
+}
+
+@mixin grid() {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+@mixin smallScreen {
+  @media (max-width: 767px) {
+    @content;
+  }
+}

@@ -1,0 +1,62 @@
+@use "../utils/vars.scss" as vars;
+
+body.dark-mode {
+  background-color: map-get($map: vars.$darkMode, $key: "darkbackground");
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
+    color: white;
+  }
+  .invoices__element {
+    background-color: map-get($map: vars.$darkMode, $key: "darkinvoice");
+  }
+  .invoice-info {
+    &__details {
+      background-color: map-get($map: vars.$darkMode, $key: "darkinvoice");
+    }
+    &__header {
+      background-color: map-get($map: vars.$darkMode, $key: "darkinvoice");
+    }
+  }
+  .create-invoice {
+    background-color: map-get($map: vars.$darkMode, $key: "darkinvoice");
+    input {
+      background-color: map-get($map: vars.$darkMode, $key: "darkbackground");
+      color: white;
+    }
+  }
+  .status {
+    background-color: map-get($map: vars.$darkMode, $key: "darkbackground");
+  }
+  .filter-invoices__list {
+    background-color: map-get($map: vars.$darkMode, $key: "darkinvoice");
+    li {
+      color: white;
+    }
+  }
+  .items {
+    &__list {
+      background-color: map-get($map: vars.$primaryColors, $key: "navback");
+    }
+  }
+  .item-creation {
+    .inputs {
+      .input-container {
+        label {
+          color: map-get($map: vars.$primaryColors, $key: "textGray");
+        }
+      }
+    }
+    .total {
+      span {
+        color: map-get($map: vars.$primaryColors, $key: "textGray");
+      }
+      &__price {
+        color: white;
+        border-color: map-get($map: vars.$primaryColors, $key: "textGray");
+      }
+    }
+  }
+}

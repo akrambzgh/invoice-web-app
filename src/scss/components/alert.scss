@@ -1,0 +1,41 @@
+@use "../utils/vars.scss" as vars;
+@use "../utils/mixin.scss" as mix;
+@use "../utils/fun.scss" as fun;
+
+.alert {
+  min-height: fun.em(50);
+  width: fun.em(500);
+  max-width: 90%;
+  border-radius: fun.em(12);
+  padding: fun.em(16) fun.em(22) fun.em(17) fun.em(20);
+  background: map-get($map: vars.$primaryColors, $key: "red");
+  position: absolute;
+  left: 58%;
+  top: 50%;
+  transform: translateY(-50%);
+  @include mix.flex(flex-start, center, row);
+  opacity: 0;
+  visibility: hidden;
+  transition: vars.$transition;
+  &.show {
+    opacity: 1;
+    visibility: visible;
+    scale: 1.3;
+  }
+  .icon__wrapper {
+    height: fun.em(34);
+    width: fun.em(34);
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.253);
+    @include mix.flex(center, center, row);
+    span {
+      font-size: fun.em(21);
+      color: #fff;
+    }
+  }
+  p {
+    color: #fff;
+    font-family: Verdana;
+    margin-left: fun.em(10);
+  }
+}
