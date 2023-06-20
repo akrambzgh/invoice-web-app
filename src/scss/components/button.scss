@@ -31,14 +31,9 @@
     color: map-get($map: vars.$primaryColors, $key: "navback");
     background-color: map-get($map: vars.$primaryColors, $key: "textGray");
   }
-  &.save__button,
-  &.save-changes__button {
+  &.save__button {
     color: white;
     background-color: map-get($map: vars.$primaryColors, $key: "purple");
-  }
-  &.edit__button {
-    color: map-get($map: vars.$primaryColors, $key: "darktext");
-    background-color: map-get($map: vars.$primaryColors, $key: "hashColor");
   }
   &.delete__button {
     color: white;
