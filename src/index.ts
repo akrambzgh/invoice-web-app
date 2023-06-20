@@ -1,6 +1,6 @@
 import "./scss/main.scss";
-import sunIcon from "../assets/icon-sun.svg";
-import moonIcon from "../assets/icon-moon.svg";
+import sunIcon from "./assets/icon-sun.svg";
+import moonIcon from "./assets/icon-moon.svg";
 
 import { CreateInvoiceElement } from "./app/createInvoiceElement";
 import { FilterInvoices } from "./app/filterInvoices";
@@ -10,7 +10,7 @@ import { Status } from "./app/status";
 import { SwitchFilter } from "./app/switchFilter";
 
 // Navbar
-const navbarButton: HTMLHeadingElement | null = document.querySelector(
+const navbarButton: HTMLElement | null = document.querySelector(
   ".filter-invoices h2"
 );
 const navbarUl: HTMLUListElement | null = document.querySelector(
@@ -76,16 +76,13 @@ const itemNameInput: HTMLInputElement | null =
 const qtyInput: HTMLInputElement | null = document.querySelector("#quantity");
 const priceInput: HTMLInputElement | null = document.querySelector("#price");
 
-const totalPrice: HTMLElement | null = document.querySelector(
-  ".inputs .total .total__price"
-);
 const mainSection: HTMLElement | null = document.querySelector(".main-section");
 const invoicesNumber: HTMLElement | null =
   document.querySelector(".invoices-length");
 
-const status: Status = new Status(setStatusButtons);
+const status: Status = new Status(Array.from(setStatusButtons));
 navbarItems.forEach(
-  (item: HTMLLIElement) => new SwitchFilter(item, navbarItems)
+  (item: HTMLLIElement) => new SwitchFilter(item, Array.from(navbarItems))
 );
 const navbarList: NavbarList = new NavbarList(navbarButton, navbarUl);
 navbarButton?.addEventListener("click", () => {
@@ -131,8 +128,8 @@ function invoiceEvents(): void {
   });
   deleteInvoiceButtons.forEach((button: HTMLButtonElement | null) => {
     button?.addEventListener("click", () => {
-      let deletedInvoice: HTMLDivElement | null =
-        button.parentElement?.parentElement?.parentElement?.parentElement;
+      let deletedInvoice: HTMLDivElement | null = button?.parentElement
+        ?.parentElement?.parentElement?.parentElement as HTMLDivElement | null;
       allInvoiceElements.forEach((invoice: HTMLDivElement | null) => {
         if (
           deletedInvoice &&
@@ -180,14 +177,12 @@ saveInvoiceButton?.addEventListener("click", () => {
   } else {
     const createInvoiceElement: CreateInvoiceElement = new CreateInvoiceElement(
       clientNameInput,
-      totalPrice,
       invoiceDateInput,
       qtyInput,
       priceInput
     );
     const invoiceInfo: InvoiceInfo = new InvoiceInfo(
       clientNameInput,
-      totalPrice,
       billFromStreetAddressInput,
       billFromCityInput,
       billFromPostCardInput,
@@ -214,10 +209,13 @@ saveInvoiceButton?.addEventListener("click", () => {
     invoiceEvents();
     const setStatusButtons: NodeListOf<HTMLButtonElement> =
       document.querySelectorAll(".make-as__button");
-    const status: Status = new Status(setStatusButtons);
+    const status: Status = new Status(Array.from(setStatusButtons));
     if (errorAlert) {
       errorAlert.classList.remove("show");
     }
+    allInputs.forEach((input) => {
+      input.value = "";
+    });
   }
 });
 

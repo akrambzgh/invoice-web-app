@@ -2,40 +2,39 @@ import leftArrowIcon from "../assets/icon-arrow-left.svg";
 import { CreateInvoiceElement } from "./createInvoiceElement";
 
 export class InvoiceInfo extends CreateInvoiceElement {
-  billFromStreetAddressInput: HTMLInputElement;
-  billFromCityInput: HTMLInputElement;
-  billFromPostCardInput: HTMLInputElement;
-  billFromCountryInput: HTMLInputElement;
-  clientEmailInput: HTMLInputElement;
-  clientStreetAddressInput: HTMLInputElement;
-  clientCityInput: HTMLInputElement;
-  clientPostCardInput: HTMLInputElement;
-  clientCountryInput: HTMLInputElement;
-  invoiceDateInput: HTMLInputElement;
-  invoiceTermDateInput: HTMLInputElement;
-  itemNameInput: HTMLInputElement;
-  qtyInput: HTMLInputElement;
-  priceInput: HTMLInputElement;
+  billFromStreetAddressInput: HTMLInputElement | null;
+  billFromCityInput: HTMLInputElement | null;
+  billFromPostCardInput: HTMLInputElement | null;
+  billFromCountryInput: HTMLInputElement | null;
+  clientEmailInput: HTMLInputElement | null;
+  clientStreetAddressInput: HTMLInputElement | null;
+  clientCityInput: HTMLInputElement | null;
+  clientPostCardInput: HTMLInputElement | null;
+  clientCountryInput: HTMLInputElement | null;
+  invoiceDateInput: HTMLInputElement | null;
+  invoiceTermDateInput: HTMLInputElement | null;
+  itemNameInput: HTMLInputElement | null;
+  qtyInput: HTMLInputElement | null;
+  priceInput: HTMLInputElement | null;
 
   constructor(
-    clientNameInput: HTMLInputElement,
-    totalPrice: HTMLInputElement,
-    billFromStreetAddressInput: HTMLInputElement,
-    billFromCityInput: HTMLInputElement,
-    billFromPostCardInput: HTMLInputElement,
-    billFromCountryInput: HTMLInputElement,
-    clientEmailInput: HTMLInputElement,
-    clientStreetAddressInput: HTMLInputElement,
-    clientCityInput: HTMLInputElement,
-    clientPostCardInput: HTMLInputElement,
-    clientCountryInput: HTMLInputElement,
-    invoiceDateInput: HTMLInputElement,
-    invoiceTermDateInput: HTMLInputElement,
-    itemNameInput: HTMLInputElement,
-    qtyInput: HTMLInputElement,
-    priceInput: HTMLInputElement
+    clientNameInput: HTMLInputElement | null,
+    billFromStreetAddressInput: HTMLInputElement | null,
+    billFromCityInput: HTMLInputElement | null,
+    billFromPostCardInput: HTMLInputElement | null,
+    billFromCountryInput: HTMLInputElement | null,
+    clientEmailInput: HTMLInputElement | null,
+    clientStreetAddressInput: HTMLInputElement | null,
+    clientCityInput: HTMLInputElement | null,
+    clientPostCardInput: HTMLInputElement | null,
+    clientCountryInput: HTMLInputElement | null,
+    invoiceDateInput: HTMLInputElement | null,
+    invoiceTermDateInput: HTMLInputElement | null,
+    itemNameInput: HTMLInputElement | null,
+    qtyInput: HTMLInputElement | null,
+    priceInput: HTMLInputElement | null
   ) {
-    super(clientNameInput, totalPrice, invoiceDateInput, qtyInput, priceInput);
+    super(clientNameInput, invoiceDateInput, qtyInput, priceInput);
     this.billFromStreetAddressInput = billFromStreetAddressInput;
     this.billFromCityInput = billFromCityInput;
     this.billFromPostCardInput = billFromPostCardInput;
@@ -89,20 +88,20 @@ export class InvoiceInfo extends CreateInvoiceElement {
           <div class="details">
             <div class="details__general">
               <div class="left">
-                <span class="name">${this.clientNameInput.value}</span>
+                <span class="name">${this.clientNameInput?.value}</span>
               </div>
               <div class="right">
                 <span class="bill-from-street-address-txt">${
-                  this.billFromStreetAddressInput.value
+                  this.billFromStreetAddressInput?.value
                 }</span>
                 <span class="bill-from-city-txt">${
-                  this.billFromCityInput.value
+                  this.billFromCityInput?.value
                 }</span>
                 <span class="bill-from-post-card-txt">${
-                  this.billFromPostCardInput.value
+                  this.billFromPostCardInput?.value
                 }</span>
                 <span class="bill-from-country-txt">${
-                  this.billFromCountryInput.value
+                  this.billFromCountryInput?.value
                 }</span>
               </div>
             </div>
@@ -111,36 +110,36 @@ export class InvoiceInfo extends CreateInvoiceElement {
                 <div class="invoice-date">
                   <span>invoice date</span>
                   <h1 class="date-text inv-date">${
-                    this.invoiceDateInput.value
+                    this.invoiceDateInput?.value
                   }</h1>
                 </div>
                 <div class="payment-due">
                   <span>payment Due</span>
                   <h1 class="date-text pay-date">${
-                    this.invoiceTermDateInput.value
+                    this.invoiceTermDateInput?.value
                   }</h1>
                 </div>
               </div>
               <div class="bill-to-details">
                 <div class="bill-to-details">
                   <span class="bill-to-street-address-txt">${
-                    this.clientStreetAddressInput.value
+                    this.clientStreetAddressInput?.value
                   }</span>
                   <span class="bill-to-city-txt">${
-                    this.clientCityInput.value
+                    this.clientCityInput?.value
                   }</span>
                   <span class="bill-from-post-card-txt">${
-                    this.clientPostCardInput.value
+                    this.clientPostCardInput?.value
                   }</span>
                   <span class="bill-to-country-txt">${
-                    this.clientCountryInput.value
+                    this.clientCountryInput?.value
                   }</span>
                 </div>
               </div>
               <div class="sent-to-details">
                 <span>sent to</span>
                 <h3 class="bill-to-email-txt">${
-                  this.clientEmailInput.value
+                  this.clientEmailInput?.value
                 }</h3>
               </div>
             </div>
@@ -150,21 +149,21 @@ export class InvoiceInfo extends CreateInvoiceElement {
               <div class="items__list__item">
                 <div class="items__list__name">
                   <span class="item-name-title">item name</span>
-                  <h3 class="item-name-txt">${this.itemNameInput.value}</h3>
+                  <h3 class="item-name-txt">${this.itemNameInput?.value}</h3>
                 </div>
                 <div class="items__list__item__quantity">
                   <span class="item-qty-title">qty</span>
-                  <h3 class="item-qty-txt">${this.qtyInput.value}</h3>
+                  <h3 class="item-qty-txt">${this.qtyInput?.value}</h3>
                 </div>
                 <div class="items__list__item__price">
                   <span class="item-price-title">item price</span>
-                  <h3 class="item-price-txt">£${this.priceInput.value}</h3>
+                  <h3 class="item-price-txt">£${this.priceInput?.value}</h3>
                 </div>
                 <div class="items__list__item__total">
                   <span class="item-total-title">total</span>
                   <h3 class="item-total-txt">£${
-                    parseInt(this.qtyInput.value) *
-                    parseInt(this.priceInput.value)
+                    parseInt(this.qtyInput?.value ?? ``) *
+                    parseInt(this.priceInput?.value ?? ``)
                   }</h3>
                 </div>
               </div>
@@ -172,7 +171,8 @@ export class InvoiceInfo extends CreateInvoiceElement {
             <div class="items__total-price">
               <h1>amount due</h1>
               <h1>£${
-                parseInt(this.qtyInput.value) * parseInt(this.priceInput.value)
+                parseInt(this.qtyInput?.value ?? ``) *
+                parseInt(this.priceInput?.value ?? ``)
               }</h1>
             </div>
           </div>

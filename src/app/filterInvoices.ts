@@ -1,12 +1,12 @@
 export class FilterInvoices {
   allFilters: NodeListOf<HTMLElement>;
-  removeFilterButton: HTMLElement;
-  filtersList: HTMLElement;
+  removeFilterButton: HTMLElement | null;
+  filtersList: HTMLElement | null;
 
   constructor(
     allFilters: NodeListOf<HTMLElement>,
-    removeFilterButton: HTMLElement,
-    filtersList: HTMLElement
+    removeFilterButton: HTMLElement | null,
+    filtersList: HTMLElement | null
   ) {
     this.allFilters = allFilters;
     this.removeFilterButton = removeFilterButton;
@@ -18,7 +18,7 @@ export class FilterInvoices {
       });
     });
 
-    this.removeFilterButton.addEventListener("click", () => {
+    this.removeFilterButton?.addEventListener("click", () => {
       this.removeAllFilters();
     });
   }
@@ -54,6 +54,6 @@ export class FilterInvoices {
       filter.classList.remove("fil-selected");
     });
 
-    this.filtersList.classList.remove("show");
+    this.filtersList?.classList.remove("show");
   }
 }

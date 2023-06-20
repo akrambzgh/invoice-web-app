@@ -1,21 +1,18 @@
 import rightArrowIcon from "../assets/icon-arrow-right.svg";
 
 export class CreateInvoiceElement {
-  clientNameInput: HTMLInputElement;
-  totalPrice: HTMLInputElement;
-  invoiceDateInput: HTMLInputElement;
-  qtyInput: HTMLInputElement;
-  itemPriceInput: HTMLInputElement;
+  clientNameInput: HTMLInputElement | null;
+  invoiceDateInput: HTMLInputElement | null;
+  qtyInput: HTMLInputElement | null;
+  itemPriceInput: HTMLInputElement | null;
 
   constructor(
-    clientNameInput: HTMLInputElement,
-    totalPrice: HTMLInputElement,
-    invoiceDateInput: HTMLInputElement,
-    qtyInput: HTMLInputElement,
-    priceInput: HTMLInputElement
+    clientNameInput: HTMLInputElement | null,
+    invoiceDateInput: HTMLInputElement | null,
+    qtyInput: HTMLInputElement | null,
+    priceInput: HTMLInputElement | null
   ) {
     this.clientNameInput = clientNameInput;
-    this.totalPrice = totalPrice;
     this.invoiceDateInput = invoiceDateInput;
     this.qtyInput = qtyInput;
     this.itemPriceInput = priceInput;
@@ -45,10 +42,11 @@ export class CreateInvoiceElement {
         <h3 class="invoices__element__id">
           <span class="hash">#</span>${code}
         </h3>
-        <h4>due ${this.invoiceDateInput.value}</h4>
-        <h5>${this.clientNameInput.value}</h5>
+        <h4>due ${this.invoiceDateInput?.value}</h4>
+        <h5>${this.clientNameInput?.value}</h5>
         <h1>£${
-          parseInt(this.qtyInput.value) * parseInt(this.itemPriceInput.value)
+          parseInt(this.qtyInput?.value ?? ``) *
+          parseInt(this.itemPriceInput?.value ?? ``)
         }</h1>
         <div class="status pending">
           <div class="status__circle"></div>
