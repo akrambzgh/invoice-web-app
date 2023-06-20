@@ -1,19 +1,33 @@
-export default class FilterInvoices {
-  constructor(allFilters, removeFilterButton, filtersList) {
+export class FilterInvoices {
+  allFilters: NodeListOf<HTMLElement>;
+  removeFilterButton: HTMLElement;
+  filtersList: HTMLElement;
+
+  constructor(
+    allFilters: NodeListOf<HTMLElement>,
+    removeFilterButton: HTMLElement,
+    filtersList: HTMLElement
+  ) {
     this.allFilters = allFilters;
     this.removeFilterButton = removeFilterButton;
     this.filtersList = filtersList;
+
     this.allFilters.forEach((filter) => {
       filter.addEventListener("click", () => {
         this.filterInvoices(filter);
       });
     });
+
     this.removeFilterButton.addEventListener("click", () => {
       this.removeAllFilters();
     });
   }
-  filterInvoices(filter) {
-    const allInvoiceElements = document.querySelectorAll(".invoices__element");
+
+  filterInvoices(filter: HTMLElement): void {
+    const allInvoiceElements = document.querySelectorAll(
+      ".invoices__element"
+    ) as NodeListOf<HTMLElement>;
+
     allInvoiceElements.forEach((invoice) => {
       if (!filter.classList.contains("fil-selected")) {
         invoice.style.display = "flex";
@@ -26,14 +40,20 @@ export default class FilterInvoices {
       }
     });
   }
-  removeAllFilters() {
-    const allInvoiceElements = document.querySelectorAll(".invoices__element");
+
+  removeAllFilters(): void {
+    const allInvoiceElements = document.querySelectorAll(
+      ".invoices__element"
+    ) as NodeListOf<HTMLElement>;
+
     allInvoiceElements.forEach((invoice) => {
       invoice.style.display = "flex";
     });
+
     this.allFilters.forEach((filter) => {
       filter.classList.remove("fil-selected");
     });
+
     this.filtersList.classList.remove("show");
   }
 }
