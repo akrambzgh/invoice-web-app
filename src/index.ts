@@ -162,12 +162,11 @@ saveInvoiceButton?.addEventListener("click", () => {
   allInputs.forEach((input: HTMLInputElement) => {
     if (
       input.value.trim() === "" ||
-      isNaN(parseInt(billFromPostCardInput?.value || "")) ||
+      isNaN(parseInt(billFromPostCardInput?.value || "")) == true ||
       parseInt(priceInput?.value || "") <= 0 ||
       parseInt(qtyInput?.value || "") <= 0
     ) {
       isEmpty = true;
-      console.log(input);
       return;
     }
   });

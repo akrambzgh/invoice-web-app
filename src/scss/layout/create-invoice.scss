@@ -122,7 +122,7 @@
     .item-creation {
       @include mix.flex(flex-start, center, row);
       .inputs {
-        @include mix.flex(flex-start, center, row);
+        @include mix.flex(space-between, center, row);
         gap: fun.em(15);
         border-bottom: fun.em(1) solid
           map-get($map: vars.$primaryColors, $key: "textGray");
@@ -135,42 +135,6 @@
           color: map-get($map: vars.$primaryColors, $key: "darktext");
           margin-bottom: fun.em(7);
         }
-        .input-container:nth-child(1) {
-          width: 30%;
-        }
-        .input-container:nth-child(2) {
-          width: 15%;
-        }
-        .input-container:nth-child(3) {
-          width: 25%;
-        }
-        .total {
-          width: 15%;
-          span.label {
-            display: block;
-            font-size: fun.em(17);
-            font-weight: 500;
-            text-transform: capitalize;
-            color: map-get($map: vars.$primaryColors, $key: "darktext");
-            margin-bottom: fun.em(7);
-          }
-          &__price {
-            display: block;
-            border: fun.em(1) solid
-              map-get($map: vars.$primaryColors, $key: "textGray");
-            border-radius: fun.em(10);
-            padding: fun.em(14);
-            font-size: fun.em(16);
-            color: map-get($map: vars.$primaryColors, $key: "darktext");
-            text-align: center;
-            height: fun.em(45);
-            margin-bottom: fun.em(7);
-          }
-        }
-      }
-      img {
-        flex: 1;
-        cursor: pointer;
       }
     }
   }
